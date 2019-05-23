@@ -1,0 +1,119 @@
+.responsive {
+	max-width: 100%;
+	height: auto;
+  }
+img{
+	padding: 5px;
+}
+
+#results {
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border-collapse: collapse;
+	width: 100%;
+	background-color: gainsboro; 
+  }
+  
+#results td, #results th {
+	border: 1px solid #ddd;
+	padding: 8px;
+  }
+  
+#results tr:nth-child(even){background-color: #f2f2f2;}
+  
+#results tr:hover {background-color: #ddd;}
+  
+#results th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #f7941d;
+	color: white;
+  }
+
+.rev-style{
+	max-width: 700px;
+	padding: 20px 12px 10px 20px;
+	font: 18px Arial, Helvetica, sans-serif;
+}
+.rev-style-heading{
+	font-weight: bold;
+	font-style: italic;
+	border-bottom: 2px solid #ddd;
+	margin-bottom: 20px;
+	font-size: 20px;
+	padding-bottom: 3px;
+}
+.rev-style-headingB{
+	font-style: italic;
+	border-bottom: 2px solid #ddd;
+	margin-bottom: 20px;
+	font-size: 18px;
+	padding-bottom: 3px;
+}
+
+.rev-style label{
+	display: block;
+	margin: 0px 0px 15px 0px;
+}
+.rev-style label > span{
+	width: 200px;
+	font-weight: bold;
+	float: left;
+	padding-top: 0px;
+	padding-right: 5px;
+}
+.rev-style span.required{
+	color:red;
+}
+.rev-style .tel-number-field{
+	width: 40px;
+	text-align: center;
+}
+.rev-style input.input-field, .rev-style .select-field{
+	width: 48%;	
+}
+.rev-style input.input-field, 
+.rev-style .tel-number-field, 
+.rev-style .textarea-field, 
+ .rev-style .select-field{
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	border: 1px solid #C2C2C2;
+	box-shadow: 1px 1px 4px #EBEBEB;
+	-moz-box-shadow: 1px 1px 4px #EBEBEB;
+	-webkit-box-shadow: 1px 1px 4px #EBEBEB;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	padding: 7px;
+	outline: none;
+}
+.rev-style .input-field:focus, 
+.rev-style .tel-number-field:focus, 
+.rev-style .textarea-field:focus,  
+.rev-style .select-field:focus{
+	border: 1px solid #0C0;
+}
+.rev-style .textarea-field{
+	height:100px;
+	width: 55%;
+}
+.rev-style input[type=submit],
+.rev-style input[type=button]{
+	border: none;
+	padding: 8px 15px 8px 15px;
+	background: #f7941d;
+	color: #fff;
+	box-shadow: 1px 1px 4px #DADADA;
+	-moz-box-shadow: 1px 1px 4px #DADADA;
+	-webkit-box-shadow: 1px 1px 4px #DADADA;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+}
+.rev-style input[type=submit]:hover,
+.rev-style input[type=button]:hover{
+	background: #EA7B00;
+	color: #fff;
+}
