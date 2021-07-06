@@ -73,3 +73,19 @@ code[class*="language-"],
 main>.container {
     padding: 60px 15px 0;
 }
+
+.Fizz{
+    color:rgb(10, 122, 0);
+    font-weight: bold;
+    
+}   
+
+.Buzz{
+    color:rgb(2, 141, 141);
+    font-weight: bold;
+}
+
+.FizzBuzz{
+    color:red;
+   font-weight: bold;
+}

@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <title>FIZZ BUZZ: A Coding Project By Mark Spectre</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+    <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
+
+    <link href="css/site.css" rel="stylesheet">
+    <link href="css/prism.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="img/favicon-32x32.png">
+
+</head>
+
+<body class="d-flex flex-column h-100">
+    <!-- ==== Nav Section ==== -->
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="img/MspectreMark.svg" class="d-inline-block align-text-top"
+                    width="30" height="24"> FIZZ BUZZ</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
+                aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="app.html">The App</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" target="_blank" href="#">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- ==== Main Section ==== -->
+    <main class="flex-shrink-0">
+        <div class="container py-5 px-5 mt-5">
+            <h2 class="border-1 border-bottom border-dark">The Code for FIZZ BUZZ.</h2>
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col-lg-8">
+                    <pre class="line-numbers"><code class="language-javascript">
+                        function getValues() {
+
+                            let fizzValue = document.getElementById("fizzValue").value;
+                            let buzzValue = document.getElementById("buzzValue").value;
+                        
+                            //check for numbers
+                            fizzValue = parseInt(fizzValue);
+                            buzzValue = parseInt(buzzValue);
+                        
+                            if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue)) {
+                                //we call generateNumbers
+                                let fbData = FizzBuzzA(fizzValue, buzzValue);
+                                //we call displayNumbers
+                                displayData(fbData);
+                        
+                            } else {
+                                alert("You must enter integers");
+                            }
+                        
+                        }
+                        
+                        //Traditional Solve Fizz Buzz with a for loop
+                        function FizzBuzzA(value1, value2) {
+                            let returnArray = [];
+                            for (let i = 1; i <= 92; i++) {
+                                if (i % value1 == 0 && i % value2 == 0) {
+                                    returnArray.push('FizzBuzz');
+                                } else if (i % value1 == 0) {
+                                    returnArray.push('Fizz');
+                                } else if (i % value2 == 0) {
+                                    returnArray.push('Buzz');
+                                } else {
+                                    returnArray.push(i);
+                                }
+                            }
+                            return returnArray;
+                        }
+                        //Another way to follow DRY (don't repeat yourself)
+                        function FizzBuzzB(value1, value2) {
+                            let returnArray = [];
+                            let Fizz = false;
+                            let Buzz = false;
+                            for (let i = 1; i <= 100; i++) {
+                                Fizz = i % value1 == 0;
+                                Buzz = i % value2 == 0;
+                                switch (true) {
+                                    case Fizz && Buzz: {
+                                        returnArray.push('FizzBuzz');
+                                        break;
+                                    }
+                                    case Fizz: {
+                                        returnArray.push('Fizz');
+                                        break;
+                                    }
+                                    case Buzz: {
+                                        returnArray.push('Buzz');
+                                        break;
+                                    }
+                                    default: {
+                                        returnArray.push(i);
+                                        break;
+                                    }
+                                }
+                                return returnArray;
+                            }
+                        
+                        }
+                        
+                        //return an array using a tienary operator
+                        function FizzBuzzC(val1, val2) {
+                            let returnArray = [];
+                            for (let i = 1; i <= 100; i++) {
+                                let value = ((i % val1 == 0 ? 'Fizz' : '') + (i % val2 == 0 ? 'Buzz' : '') || i);
+                                returnArray.push(value);
+                            }
+                            return returnArray;
+                        }
+                        
+                        function displayData(fbData) {
+                        
+                            //get the table body element from the page
+                            let tableBody = document.getElementById("results");
+                        
+                            //get the row from the template
+                            let templateRow = document.getElementById("fbTemplate");
+                        
+                            //clear table first
+                            tableBody.innerHTML = "";
+                        
+                            for (let i = 0; i < fbData.length; i += 5) {
+                                const tableRow = document.importNode(templateRow.content, true);
+                                //grab only the columns in the template
+                                rowCols = tableRow.querySelectorAll("td");
+                        
+                                rowCols[0].classList.add(fbData[i]);
+                                rowCols[0].textContent = fbData[i];
+                               
+                                rowCols[1].classList.add(fbData[i+ 1]);
+                                rowCols[1].textContent = fbData[i + 1];
+                               
+                                rowCols[2].classList.add(fbData[i+2]);
+                                rowCols[2].textContent = fbData[i + 2];
+                               
+                                rowCols[3].classList.add(fbData[i+3]);
+                                rowCols[3].textContent = fbData[i + 3];
+                               
+                                rowCols[4].classList.add(fbData[i+4]);
+                                rowCols[4].textContent = fbData[i + 4];
+                        
+                                tableBody.appendChild(tableRow);
+                            }
+                        }
+                        
+                     </code>
+                     </pre>
+                </div>
+                <div class="col-lg-4">
+                    <p>The Code is structed in one function.</p>
+                    <h5>Hello World</h5>
+                    <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- ==== Footer Section ==== -->
+    <footer class="footer mt-auto py-3">
+        <div class="container-fluid">
+            <div class="row row-cols-1 row-cols-lg-3 gy-2">
+                <div class="col order-last order-lg-first text-light">
+                    <div><span class="text-muted">&copy;2021</span> Mark Spectre | mspectre@moon.com</div>
+                </div>
+                <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
+                    <img src="img/MarkSpectre_WhtLogo.svg" alt="Mark Spectre Logo" height="24">
+                </div>
+                <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
+                    <div class="row">
+                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+                        </div>
+                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+                        </div>
+                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+                        </div>
+                        <div class="col social"><a href="#" target="_blank"><i class="fab fa-youtube fa-2x"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
+    </script>
+    <script src="js/prism.js"></script>
+    <script>
+        Prism.plugins.NormalizeWhitespace.setDefaults({
+            'remove-trailing': true,
+            'remove-indent': true,
+            'left-trim': true,
+            'right-trim': true
+        })
+    </script>
+
+</body>
+
+</html>
