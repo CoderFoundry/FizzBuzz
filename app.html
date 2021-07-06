@@ -31,10 +31,10 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="app.html">The App</a>
+                        <a class="nav-link active" aria-current="page" href="app.html">The App</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="code.html">The Code</a>
@@ -49,43 +49,44 @@
             </div>
         </div>
     </nav>
-    <!-- ==== Main Section ==== -->
-    <main class="flex-shrink-0">
-        <div class="container col-12 px-4 py-5">
-            <div class="row g-5 py-5 row-cols-1 row-cols-lg-2">
-                <div class="col order-last order-lg-first">
-                    <h1 class="display-md-6 fw-bold lh-1 mb-3">FIZZ BUZZ: A Coding Project</h1>
+     <!-- ==== Main Section ==== -->
+     <main class="flex-shrink-0">
+        <div class="container mt-5">
+            <div class="row row-cols-1 row-cols-lg-2">
+                <div class="col col-lg-4 border-end border-2">
+                    <h3 class="fw-bold lh-1 mb-3">FIZZ BUZZ: A Coding Project</h3>
                     <h4 class="lead">When it counts you Fizz Buzz. A javascript coding exercise using loops. Write a
                         program that prints the numbers from 1 to 100 and for multiples of ‘3’ display “Fizz” instead of
                         the number and for the multiples of ‘5’ display “Buzz”. If a mulitple of both display "FizzBuzz".
                     </h4>
-                    <ul class="fa-ul pt-2 checklist">
-                        <li><span class="fa-li"><i class="fas fa-check-square"></i></span>CSS and Bootstrap Layout</li>
-                        <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Javascript Fundamentals</li>
-                        <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Javascript Loops</li>
-                        <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Javascript Functions</li>
-                        <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Javascript Dom Manipulation
-                        </li>
-                        <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Javascript If/Then/Else</li>
-                        <li><span class="fa-li"><i class="fas fa-check-square"></i></span>Javascript Boolean Logic</li>
-                    </ul>
-                    <div>
-                        <a type="button" class="btn btn-outline-dark btn-lg px-4 me-md-2" href="app.html">Try It
-                            Out!</a>
-                    </div>
-                    <h5 class="fw-bold mt-3">
-                        <div class="d-flex">
-                            <div class="row gx-2">
-                                <div class="col"><i class="fab fa-js-square fa-3x jsicon"></i></div>
-                                <div class="col"><i class="fab fa-bootstrap fa-3x bsicon"></i></div>
-                                <div class="col"><i class="fab fa-html5 fa-3x html5icon"></i></div>
-                                <div class="col"><i class="fab fa-css3-alt fa-3x css3icon"></i></div>
-                            </div>
-                        </div>
-                    </h5>
+                    <h2 class="mt-2 mt-md-5">Instructions</h2>
+                    <p>Enter a fizz and a buzz value. Press the button and the values will appear.</p>
                 </div>
-                <div class="col max-height: 50px; align-content-center justify-content-center ">
-                    <img src="img/FizzBuzzLogo.svg" class="img-fluid" alt="FIZZ BUZZ Logo">
+                <div class="col col-lg-8">
+                    <div>
+                        <h5>Enter Values</h5>
+                        <form class="row gy-2 gx-3">
+                            <div class="col">
+                                <input id="fizzValue" type="number" class="form-control" placeholder="Fizz Value"
+                                    value=3  aria-label="Fizz Value">
+                            </div>
+                            <div class="col">
+                                <input id="buzzValue" type="number" class="form-control" placeholder="Buzz Value"
+                                value=5  aria-label="Buzz Value">
+                            </div>
+                            <div class="col-12 d-flex justify-content-end">
+                                <button id="btnSubmit" type="button" class="btn btn-dark btn-lg">Buzz It</button>
+                            </div>
+                        </form>
+                        <h2 class="mt-5 border-bottom border-2">Results</h2>
+                        <div class="table-responsive">
+                            <table class="table table-striped table-sm">
+                                  <tbody id="results">
+                                     <!---Results Go Here-->
+                                  </tbody>  
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,16 +116,14 @@
             </div>
         </div>
     </footer>
-    <template id="displayRow">
-        <tr>
-            <td></td><td></td><td></td><td></td><td></td>
-        </tr> 
-    </template>
+
+    
+
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous">
     </script>
-
+    <script src="js/site.js"></script>
 </body>
 
 </html>
